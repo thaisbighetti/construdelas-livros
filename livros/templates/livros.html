@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  {% load static %}
+  <head>
+    <!-- Title -->
+    <title>
+      {% block title %}Livros{% endblock %}
+    </title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'website/img/favicon.png' %}" type="image/png">
+
+    <!-- Arquivos CSS -->
+    <link rel="stylesheet" href='templates/style.css'>
+  </head>
+  <body>
+  <table width="500px" cellpadding="5px" frame="above">
+    <caption>LIVROS</caption>
+    <tr>
+        <td>Título</td>
+        <td>Numero de páginas</td>
+        <td>Editora</td>
+    </tr>
+    {% for livro in livros %}
+    <tr>
+        <td>{{ livro.titulo }}</td>
+        <td>{{ livro.numero_de_paginas }}</td>
+        <td>{{ livro.editora }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  <br>
+  ------------------------------------------------------------------------------------------------------------
+  <br>
+    <form method="post" action="{% url 'livros' %}">{% csrf_token %}
+        <table>
+          <tr>
+            <td><label for="titulo">Título</label></td>
+            <td><input id="titulo" name="titulo" type="text" class="form-control" required>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="numero_paginas">Número de páginas</label></td>
+            <td><input id="numero_paginas" name="numero_paginas" type="text" class="form-control" required>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="editora">Editora</label></td>
+            <td><input id="editora" name="editora" type="text" class="form-control" required>
+            </td>
+          </tr>
+        </table>
+          <input type="submit" value="adicionar livro" />
+    </form>
+  </body>
+</html>

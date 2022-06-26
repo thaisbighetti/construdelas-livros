@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  {% load static %}
+  <head>
+    <!-- Title -->
+    <title>
+      {% block title %}Criar usuário{% endblock %}
+    </title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'website/img/favicon.png' %}" type="image/png">
+
+  </head>
+
+  <body>
+    <a href="/login">Faça login para adicionar ou ver a lista de livros</a>
+    <br>
+    <br>
+    <a href="/sign-up">Crie uma conta para ver a lista de livros e adicionar livros novos</a>
+    <script src="{% static 'website/js/jquery.min.js' %}"></script>
+    <script src="{% static 'website/js/bootstrap.min.js' %}"></script>
+  </body>
+</html>
